@@ -1,0 +1,33 @@
+<!-- 
+#2 - Tabuadas
+
+Apresenta as 10 tabuadas com o seguinte formato:
+
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+
+Utiliza a quantidade menor de código possível. 
+-->
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title> Exercício 2 da Primeira Tarefa de Programação de Scripts - Ana Teixeira
+	</title>
+</head>
+<body>
+	<h1>Tabuadas</h1>
+	<script type="text/javascript">
+		"use strict";
+		for (var i = 1; i <= 10; i++) {
+  			for (var j = 1; j <= 10; j++) {
+    			var resultado = i * j;
+    			document.write(i + " x " + j + " = " + resultado + "<br>");
+  			}
+  			document.write("<br>");
+		}
+	</script>
+</body>
+</html>

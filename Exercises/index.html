@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1 id="titulo" onclick="mudaTitulo(this,'Cenas Fixes');">Intro ao Javascript</h1>
+    <h2 id="titulo2" onclick="mudaTitulo(this,'Isto até é giro');">Coisito dois</h2>
+    <h2 id="titulo3">Coisito tres</h2>
+    
+    <script>
+        function mudaTitulo(f, texto){
+            //alert(f.innerHTML);
+            // e = document.getElementById("titulo");
+            // alert(e.innerHTML);
+            // e.innerHTML = texto;
+            f.innerHTML = texto;
+            f.style.color = "green";
+            f.style.fontSize = "80px";
+        }
+
+        //alert(5**3); 
+
+        e = document.getElementById("titulo2");
+        e.innerHTML = "João" + " " + "Câncio tem ";
+        e.innerHTML += 2023 - 1980 + " anos";
+
+
+        const carro = {
+            marca: "Citroen",
+            modelo: "Picasso",
+            cor: "preto",
+            ano: 2008,
+            idade: function() {
+                return 2023 - this.ano;
+            }
+        };
+
+        e = document.getElementById("titulo3");
+        e.innerHTML = carro.marca + " " + carro.modelo + " tem " + carro.idade() + " anos.";
+
+        //alert("Qualquer coisa \"entre\" aspas");
+
+        const carros = [
+            "Citroen",
+            "BMW",
+            "Audi",
+            "Fiat",
+            "Aston Martin"
+        ];
+
+        // alert (carros[1]);
+
+        const desporto = [];
+        desporto[0] = "Andebol";
+        desporto[1] = "Basquetebol";
+        desporto[2] = "Voleibol";
+
+        //alert (desporto[0]);
+        const almoco = [];
+    /*
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.pop();
+
+        alert (almoco[1]);
+    */
+   
+    </script>
+</body>
+</html>

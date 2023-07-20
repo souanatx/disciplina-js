@@ -1,0 +1,40 @@
+<!-- 
+#1 - Qualificação de Notas
+
+Pedir ao utilizador a nota que teve numa disciplina qualquer e atribuir uma nota qualitativa:
+< 10 ... Negativa
+>= 10 e < 14 ... Suficiente
+>=14 e < 17 ... Bom
+>= 17 ... Excelente
+As notas permitidas são obrigatoriamente entre 0 e 20. Deve dar um erro / alerta se não estiver dentro deste intervalo de notas e pedir novamente a nota.
+-->
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title> Exercício 1 da Primeira Tarefa de Programação de Scripts - Ana Teixeira
+	</title>
+</head>
+<body>
+	<h1>Qualificação de Notas</h1>
+	<p id="resultado"></p>
+	<script type="text/javascript">
+		"use strict";
+		var nota = prompt("Digite a sua nota (entre 0 e 20):");
+		while (nota < 0 || nota > 20) {
+			nota = prompt("Nota inválida. Digite novamente a sua nota (entre 0 e 20):");
+		}
+		var resultado = document.getElementById("resultado");
+		if (nota < 10) {
+			resultado.innerHTML = "Nota: " + nota + "<br>Qualificação: Negativa";
+		} else if (nota < 14) {
+			resultado.innerHTML = "Nota: " + nota + "<br>Qualificação: Suficiente";
+		} else if (nota < 17) {
+			resultado.innerHTML = "Nota: " + nota + "<br>Qualificação: Bom";
+		} else {
+			resultado.innerHTML = "Nota: " + nota + "<br>Qualificação: Excelente";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jogo das 100 Portas</title>
+	<script type="text/javascript">
+		function jogo_100_portas() {
+			var numero_casa_banho = Math.floor(Math.random() * 100) + 1;
+
+			var tentativas = 0;
+
+			while (true) {
+				var porta_escolhida = parseInt(prompt("Escolha um número de porta (1 a 100): "));
+
+				if (porta_escolhida === numero_casa_banho) {
+					tentativas++;
+					alert("Parabéns, acertou na porta da casa de banho em " + tentativas + " tentativa(s)!");
+					if (tentativas === 1) {
+						alert("Génio!");
+					} else if (tentativas <= 4) {
+						alert("Bom desempenho!");
+					} else {
+						alert("Desempenho razoável.");
+					}
+					break;
+				}
+
+				tentativas++;
+				if (porta_escolhida < numero_casa_banho) {
+					alert("O número certo é mais alto.");
+				} else {
+					alert("O número certo é mais baixo.");
+				}
+
+				if (tentativas >= 10) {
+					alert("Excedeu o limite de tentativas. Tente novamente.");
+					break;
+				}
+			}
+
+			if (tentativas >= 10) {
+				alert("Não aguentaste... tens de trocar de roupa...");
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Jogo das 100 Portas</h1>
+	<button onclick="jogo_100_portas()">Começar o Jogo</button>
+</body>
+</html>
