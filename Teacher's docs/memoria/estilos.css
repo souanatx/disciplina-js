@@ -1,0 +1,15 @@
+#grid {
+    width: 416px;
+    height: 312px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid img {
+    margin: 2px;
+    cursor: pointer;
+}
+
+#grid img:hover {
+    filter: brightness(2);
+}
