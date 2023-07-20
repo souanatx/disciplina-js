@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1 id="titulo" onclick="mudaTitulo(this,'Cenas Fixes');">Intro ao Javascript</h1>
+    <h2 id="titulo2" onclick="mudaTitulo(this,'Isto até é giro');">Coisito dois</h2>
+    <h2 id="titulo3">Coisito tres</h2>
+
+
+    <ul id="listaCarros">
+
+    </ul>
+
+    <ul id="listaCarrosMulti">
+
+    </ul>
+    
+    <h6>Título Um</h6>
+    <h6>Título Dois</h6>
+    <h6>Título Três</h6>
+    <h6>Título Quatro</h6>
+    <button id="btTestar">Testar</button>
+
+
+    <h5>Título Um</h5>
+    <h5 class="teste">Título Dois</h5>
+    <h5>Título Três</h5>
+    <h5>Título Quatro</h5>
+    <button id="btTestarH5">Testar</button>
+
+
+
+    <script>
+        function mudaTitulo(f, texto){
+            //alert(f.innerHTML);
+            // e = document.getElementById("titulo");
+            // alert(e.innerHTML);
+            // e.innerHTML = texto;
+            f.innerHTML = texto;
+            f.style.color = "green";
+            f.style.fontSize = "80px";
+        }
+
+        //alert(5**3); 
+
+        e = document.getElementById("titulo2");
+        e.innerHTML = "João" + " " + "Câncio tem ";
+        e.innerHTML += 2023 - 1980 + " anos";
+
+
+        const carro = {
+            marca: "Citroen",
+            modelo: "Picasso",
+            cor: "preto",
+            ano: 2008,
+            idade: function() {
+                return 2023 - this.ano;
+            }
+        };
+
+        e = document.getElementById("titulo3");
+        e.innerHTML = carro.marca + " " + carro.modelo + " tem " + carro.idade() + " anos.";
+
+        //alert("Qualquer coisa \"entre\" aspas");
+
+        const carros = [
+            "Citroen",
+            "BMW",
+            "Audi",
+            "Fiat",
+            "Aston Martin",
+            "Ferrari"
+        ];
+
+        // alert (carros[1]);
+
+        const desporto = [];
+        desporto[0] = "Andebol";
+        desporto[1] = "Basquetebol";
+        desporto[2] = "Voleibol";
+
+        //alert (desporto[0]);
+        const almoco = [];
+    /*
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.push(prompt("O que foi o teu almoço"));
+        almoco.pop();
+
+        alert (almoco[1]);
+    */
+
+        f = document.getElementById("listaCarros");
+        for (i = 0; i < carros.length ; i++){
+            f.innerHTML += "<li>" + carros[i] + "</li>";
+        }
+
+        for (value of carros){
+            f.innerHTML += "<li>" + value + "</li>";
+        }
+
+
+        const carrosmulti = [
+            ["Citroen","preto", "familiar"],
+            ["BMW", "azul", "empresarial"],
+            ["Audi","cinza", "recreativo"],
+            ["Fiat", "branco", "citadino"],
+            ["Aston Martin", "verde", "gabarolas"],
+            ["Ferrari", "amarelo", "competitivo"]            
+        ];
+
+        e = document.getElementById("listaCarrosMulti");
+        for (value of carrosmulti){
+            e.innerHTML += "<li>O " + value[0] + " é " + value[1] + " e é para uso " + value[2] + "</li>";
+        }
+
+        e.appendChild(f);
+
+        titulo3 = document.getElementById("titulo3");
+        titulo3.onclick = function(){
+            mudaTitulo(this,"cenas");
+        }
+
+        document.getElementById("btTestar").onclick = function(){
+            const eh6 = document.getElementsByTagName("h6");
+            eh6[2].innerHTML = "ACERTEI!!!!";
+        }
+
+        document.getElementById("btTestarH5").onclick = function(){
+            const eh5 = document.querySelector("h5.teste");
+            eh5.innerHTML = "ACERTEI!!!!";
+
+        }
+
+        
+    </script>
+</body>
+</html>

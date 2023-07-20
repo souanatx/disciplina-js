@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    #form-result {
+        background-color: coral;
+        color: white;
+        display: none;
+    }
+
+    #contacto span {
+        font-size: 9px;
+        color: red;
+        margin-right: 20px;
+    }
+
+    .form-pwd-success {
+        color: green !important;
+    }
+</style>
+</head>
+<body>
+    <form name="contacto" id="contacto" action="form.html" method="GET" onsubmit="return validarForm()">
+    <div class="mb-3 mt-3">
+        <label for="numero" class="form-label">Número:</label>
+        <input type="text" class="form-control" id="numero" placeholder="Enter número" name="numero">
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input type="password" onkeyup="validarPassword(this);" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        <span id="pwd-upper">Maiúsculas</span>
+        <span id="pwd-lower">Minúsculas</span>
+        <span id="pwd-number">Número</span>
+        <span id="pwd-char">Carater especial</span>
+    </div>
+    <div class="form-check mb-3">
+        <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div id="form-result">
+        
+    </div>
+    </form>
+
+
+<script>
+    function validarForm(){
+        
+        x = document.forms["contacto"];
+        formNumero = x["numero"].value;
+        formEmail = x["email"].value;
+        formPassword = x["pswd"].value;
+        formOk = true;
+
+        formResult = document.getElementById("form-result");
+
+        formResult.innerHTML = "Alerta:";
+
+        if (formNumero == ""){
+            formResult.innerHTML += "<br>- Falta preencher o Número";
+            formOk = false;
+        } else if (isNaN(formNumero)){
+            formResult.innerHTML += "<br>- Campo Número não é um número";
+            formOk = false;
+        } else if (formNumero < 1 || formNumero > 10){
+            formResult.innerHTML += "<br>- Número não está entre 1 e 10";
+            formOk = false;
+        }
+      
+        if (formEmail == ""){
+            formResult.innerHTML += "<br>- Falta preencher o Email";
+            formOk = false;
+        }
+      
+        if (formPassword == ""){
+            formResult.innerHTML += "<br>- Falta preencher a Password";
+            formOk = false;
+        } else {
+            //x = formPassword.search(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,20}$/);
+            if (!validarPassword(x["pswd"])){
+                formResult.innerHTML += "<br>- Password tem de ter min, mais, numero e caracter";
+                formOk = false;
+            }
+        }
+
+        if (!formOk) {
+            document.getElementById("form-result").style.display = "block";
+            return false;
+        }
+      
+
+    }
+
+    function validarPassword(e){
+        passOk = false;
+        formPassword = e.value;
+        xNum = formPassword.search(/^(?=.*\d)/);
+        xCar = formPassword.search(/^(?=.*[!@#$%^&*])/);
+        xMin = formPassword.search(/^(?=.*[a-z])/);
+        xMai = formPassword.search(/^(?=.*[A-Z])/);
+        
+        if (xNum >= 0) {
+            document.getElementById("pwd-number").classList.add("form-pwd-success");
+        } else {
+            document.getElementById("pwd-number").classList.remove("form-pwd-success");
+        }
+
+        if (xCar >= 0) {
+            document.getElementById("pwd-char").classList.add("form-pwd-success");
+        } else {
+            document.getElementById("pwd-char").classList.remove("form-pwd-success");
+        }
+
+        if (xMin >= 0) {
+            document.getElementById("pwd-lower").classList.add("form-pwd-success");
+        } else {
+            document.getElementById("pwd-lower").classList.remove("form-pwd-success");
+        }
+
+        if (xMai >= 0) {
+            document.getElementById("pwd-upper").classList.add("form-pwd-success");
+        } else {
+            document.getElementById("pwd-upper").classList.remove("form-pwd-success");
+        }
+
+        if(document.getElementsByClassName("form-pwd-success").length == 4){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
+</body>
+</html>
