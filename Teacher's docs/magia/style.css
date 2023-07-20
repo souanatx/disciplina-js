@@ -1,0 +1,34 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#grid {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 606px;
+    height: 456px;
+}
+
+#grid div {
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    padding: 16px 0 0 0;
+    background-color: orange;
+    border: 1px solid white;
+}
+
+.porta-certa {
+    background-color: darkgreen !important;
+}
+
+#resultado {
+    color: white;
+    background-color: grey;
+}
+
+.carta-branca {
+    background-color: white !important;
+}
